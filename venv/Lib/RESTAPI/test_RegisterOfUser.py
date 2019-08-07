@@ -5,7 +5,7 @@ from Lib.RESTAPI import UserModel
 import pytest
 
 class TestAPI():
-    def test_createOfUser():
+    def test_createOfUser(self):
             user = UserModel.User()
             url = "http://users.bugred.ru/tasks/rest/doregister"
             s = json.dumps(user.__dict__)
