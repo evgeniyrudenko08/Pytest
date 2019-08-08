@@ -3,6 +3,7 @@ import json
 import jsonpath
 from Lib.RESTAPI import UserModel
 import pytest
+import allure_pytest
 
 class TestAPI():
     def test_createOfUser(self):
