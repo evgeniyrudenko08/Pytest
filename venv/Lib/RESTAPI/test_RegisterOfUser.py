@@ -5,16 +5,19 @@ from Lib.RESTAPI import UserModel
 import pytest
 import allure_pytest
 
+[pytest]
+log_cli=true
+log_level=NOTSET
+
 class TestAPI():
-    def test_createOfUser(self):
+    def test_createOfUser(self, caplog):
             user = UserModel.User()
             url = "http://users.bugred.ru/tasks/rest/doregister"
             s = json.dumps(user.__dict__)
-            request_json = json.loads(s)
-            response = requests.post(url,request_json)
-            assert str(response) == "<Response [200]>"
+            request_json = json.loads(s)           
+            response = requests.post(url,request_json)            
             response_json = json.loads(response.text)
-            assert response_json['name'] == user.name
+            assert (response_json['email'] == user.email), "No user is created"
 
     def test_deleteAvatar(self):
             url = "http://users.bugred.ru/tasks/rest/deleteavatar/?email=test780@test50.com"
