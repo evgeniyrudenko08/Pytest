@@ -5,10 +5,6 @@ from Lib.RESTAPI import UserModel
 import pytest
 import allure_pytest
 
-[pytest]
-log_cli=true
-log_level=NOTSET
-
 class TestAPI():
     def test_createOfUser(self, caplog):
             user = UserModel.User()
