@@ -4,6 +4,7 @@ import jsonpath
 from Lib.RESTAPI import UserModel
 import pytest
 import allure_pytest
+from pytest import ExitCode
 
 class TestAPI():
     def test_createOfUser(self, caplog):
